@@ -1,0 +1,29 @@
+.container
+{
+background-color:#cf7dcf;
+color: #FFF;
+font-weight: bolder;
+}
+
+.btn
+{
+  color: #FFF;
+  font-weight: bolder;
+  background-color:#ba45ba;
+}
+.btn:hover
+{
+  color: #FFF;
+  font-weight: bolder;
+  background-color:#953795;
+}
+
+label
+{
+  margin-right: 5px;
+}
+
+.bg{
+background-color: #99ccff;
+
+}
