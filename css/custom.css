@@ -29,4 +29,54 @@ background-color: #99ccff;
 
 .bg2{
 background-color: #003566;
+border-bottom: #f2f2f2 1px solid;
+}
+
+.backy
+{
+  background-color: #FFF;
+  padding-bottom: 30px;
+  padding-top: 30px;
+}
+.submit
+{
+  margin-left: 15px;
+  font-weight: bolder;
+  background-color:#668cff;
+}
+.submit:hover
+{
+    background-color:#4d79ff;
+}
+
+.formularik
+{
+  width:150px;
+  margin-left: 5px;
+}
+
+.nothere
+{
+  width: 0px;
+  margin: 0px;
+  padding: 0px;
+  opacity: 0;
+}
+
+.maz
+{
+  color:#FFF;
+  background-color: red;
+  padding: 2px;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+.maz:hover
+{
+  color:#000;
+  background-color: red;
+  padding: 2px;
+  padding-left: 4px;
+  padding-right: 4px;
 }
