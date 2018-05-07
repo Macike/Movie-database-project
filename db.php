@@ -11,6 +11,12 @@ function connectDB($name, $password)
     return $con;
 }
 
+/**
+ * Generate new ID based on last ID at tablle
+ *
+ * @param  Object $con connection
+ * @return Number new ID
+ */
 function getNewID($con)
 {
     $res = mysql_query("SELECT MAX(ID) AS ID FROM Movies", $con);

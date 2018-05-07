@@ -65,15 +65,17 @@ function printAdmin($fatal)
 
 }
 
- function makingheader()
+function makingheader()
 {
   $header="<div class='row text-center bg'>";
-  $header .="<div class=offset-1 col-2 text-center'> Meno : </div>";
+  $header .="<div class='offset-1 col-2 text-center'> Meno : </div>";
   $header .="<div class='col-2 text-center'> Žáner : </div>";
   $header .="<div class='col-2 text-center'> Režisér : </div>";
   $header .="<div class='col-2 text-center'> Krajina : </div>";
   $header .="<div class='col-1 text-center'> Skóre : </div>";
   $header .= "</div>";
+
+  return $header;
 }
 
 ?>

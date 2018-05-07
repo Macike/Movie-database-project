@@ -16,6 +16,7 @@
       <?php
       require 'layout.php';
       require 'db.php';
+
       if (isset($_POST["Name"]) && isset($_POST["pass"]))
       {
           $pass = "admin";
@@ -27,14 +28,14 @@
             echo "<div class=\"container text-center\"> ";
             echo addform();
             echo makingheader();
-            
-              $con = connectDB("galavecerxfc8938", "F9feEBO");
 
-              if(!$con)
-                  echo "DB connection failed";
+            $con = connectDB("galavecerxfc8938", "F9feEBO");
 
-              echo printDB($con);
-              mysql_close($con);
+            if(!$con)
+               echo "DB connection failed";
+
+            echo printDB($con);
+            mysql_close($con);
           }
           else
           {
@@ -55,8 +56,8 @@
         echo addform();
         echo makingheader();
 
-          echo printDB($con);
-          mysql_close($con);
+        echo printDB($con);
+        mysql_close($con);
 
       }
       else if(isset($_POST['id']))
@@ -71,8 +72,8 @@
         echo addform();
         echo makingheader();
 
-          echo printDB($con);
-          mysql_close($con);
+        echo printDB($con);
+        mysql_close($con);
 
       }
       else
