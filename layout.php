@@ -15,6 +15,23 @@ function addForm()
     return $form;
 }
 
+function updateForm($name, $genre, $director, $country, $review)
+{
+  $form = "<div class='container text-center'>";
+  $form .=  "<div class='row backy'>";
+  $form .= "<form method='post' action='#'>";
+  $form .= "<input type='text' name='name' class='formularik'placeholder='Meno' value='". $name ."' required />";
+  $form .= "<input type='text' name='genre' class='formularik' placeholder='Žáner'value='". $genre ."' required/>";
+  $form .= "<input type='text' name='director' class='formularik'placeholder='Režisér'value='". $director ."' required/>";
+  $form .= "<input type='text' name='country'class='formularik'placeholder='Krajina' value='". $country ."' required/>";
+  $form .= "<input type='text' name='review' class='formularik'placeholder='Hodnotenie' maxlength='3'value='". $review ."' required/>";
+  $form .= "<input type='submit' class='btn submit' value='Submit'/>";
+  $form .="</form>";
+  $form .="</div>";
+  $form .="</div>";
+  return $form;
+}
+
 function printDB($con)
 {
   $res = mysql_query("SELECT * FROM Movies", $con);
@@ -30,10 +47,17 @@ function printDB($con)
       $layout .=  "<div class='col-2'>" . $row["Director"] . "</div>";
       $layout .= "<div class='col-2'>" . $row["Country"] . "</div>";
       $layout .= "<div class='col-1'>" . $row["Review"] . "</div>";
-      $layout .= "<div class='col-2'>";
+      $layout .= "<div class='col-1'>";
         $layout .= "<form method='post' action='#'>";
           $layout .= "<input type='text' class='nothere' name='id' readonly value=". $row["ID"] .">";
           $layout .= "<input type='submit' class='btn maz' value='X'>";
+        $layout .= "</form>";
+      $layout .= "</div>";
+
+      $layout .= "<div class='col-1'>";
+        $layout .= "<form method='post' action='#'>";
+          $layout .= "<input type='text' class='nothere' name='ide' readonly value=". $row["ID"] .">";
+          $layout .= "<input type='submit' class='btn upd' value='U'>";
         $layout .= "</form>";
       $layout .= "</div>";
       $layout .= "</div>";

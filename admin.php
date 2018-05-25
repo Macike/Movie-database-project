@@ -76,6 +76,21 @@
         mysql_close($con);
 
       }
+      else if(isset($_POST['ide']))
+      {
+        $con = connectDB("galavecerxfc8938", "F9feEBO");
+
+        if(!$con)
+            echo "DB connection failed";
+
+        $res = getRecordById($_POST['ide'], $con);
+        echo updateForm($res["NAME"], $res["Genre"], $res["Director"], $res["Country"], $res["Review"]);
+        mysql_close($con);
+      }
+      else if(isset($_POST['name']) && isset($_POST['genre']) && isset($_POST['director']) && isset($_POST['country'])&& isset($_POST['review']))
+      {
+        echo"DATABAZA JEDLO";
+      }
       else
       {
         echo printAdmin(false);

@@ -38,4 +38,12 @@ function deleteDB($con, $id)
   mysql_query("DELETE FROM Movies WHERE ID= '".$id."' ",$con);
   return mysql_error($con);
 }
+
+function getRecordById($id, $con)
+{
+  $query="SELECT * FROM Movies WHERE ID='".$id."'";
+  $res = mysql_query($query, $con);
+
+  return mysql_fetch_assoc($res);
+}
 ?>
