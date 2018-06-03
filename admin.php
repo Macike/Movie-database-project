@@ -89,7 +89,12 @@
       }
       else if(isset($_POST['name']) && isset($_POST['genre']) && isset($_POST['director']) && isset($_POST['country'])&& isset($_POST['review']))
       {
-        echo"DATABAZA JEDLO";
+        $con = connectDB("galavecerxfc8938", "F9feEBO");
+
+        if(!$con)
+            echo "DB connection failed";
+
+        updateDb()
       }
       else
       {
