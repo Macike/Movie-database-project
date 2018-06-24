@@ -6,7 +6,6 @@
 
         <title>Movie admin</title>
         <meta name="description" content="The HTML5 Herald">
-        <meta name="Machine Monitor" content="event display">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="css/custom.css">
@@ -84,17 +83,25 @@
             echo "DB connection failed";
 
         $res = getRecordById($_POST['ide'], $con);
-        echo updateForm($res["NAME"], $res["Genre"], $res["Director"], $res["Country"], $res["Review"]);
+        echo updateForm($res["ID"], $res["NAME"], $res["Genre"], $res["Director"], $res["Country"], $res["Review"]);
         mysql_close($con);
       }
-      else if(isset($_POST['name']) && isset($_POST['genre']) && isset($_POST['director']) && isset($_POST['country'])&& isset($_POST['review']))
+      else if(isset($_POST['idee']) && isset($_POST['name']) && isset($_POST['genre']) && isset($_POST['director']) && isset($_POST['country']) && isset($_POST['review']))
       {
         $con = connectDB("galavecerxfc8938", "F9feEBO");
 
         if(!$con)
+        {
             echo "DB connection failed";
+            exit(0);
+        }
 
-        updateDb()
+        echo updateDb($con, $_POST['idee'], $_POST['name'], $_POST['director'], $_POST['country'], $_POST['genre'], $_POST['review']);
+        echo "<div class=\"container text-center\"> ";
+        echo addform();
+        echo makingheader();
+        echo printDB($con);
+        mysql_close($con);
       }
       else
       {

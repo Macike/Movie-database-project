@@ -49,6 +49,7 @@ function getRecordById($id, $con)
 
 function updateDb ($con, $id, $name, $director, $country, $genre, $review)
 {
-  $res= mysql_query("UPDATE Movies SET NAME = '".$name."', Genre = '".$genre."', Director = '".$director."', Country = '".$country."', Review = '".$review."' WHERE ID = '".$id, $con);
+  $res= mysql_query("UPDATE Movies SET NAME = '".$name."', Genre = '".$genre."', Director = '".$director."', Country = '".$country."', Review = '".$review."' WHERE ID = '".$id."'", $con);
+  return mysql_error($con);
 }
 ?>

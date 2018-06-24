@@ -15,11 +15,12 @@ function addForm()
     return $form;
 }
 
-function updateForm($name, $genre, $director, $country, $review)
+function updateForm($id, $name, $genre, $director, $country, $review)
 {
   $form = "<div class='container text-center'>";
   $form .=  "<div class='row backy'>";
   $form .= "<form method='post' action='#'>";
+  $form .= "<input type='text' class='nothere' name='idee' readonly value=". $id .">";
   $form .= "<input type='text' name='name' class='formularik'placeholder='Meno' value='". $name ."' required />";
   $form .= "<input type='text' name='genre' class='formularik' placeholder='Žáner'value='". $genre ."' required/>";
   $form .= "<input type='text' name='director' class='formularik'placeholder='Režisér'value='". $director ."' required/>";
