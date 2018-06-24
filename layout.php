@@ -1,4 +1,9 @@
 <?php
+/**
+ * v jednej premennej sa sklada string ktory obsahuje formular na pridavanie
+ *
+ * @return {String}
+ */
 function addForm()
 {
     $form =  "<div class='row backy'>";
@@ -15,6 +20,17 @@ function addForm()
     return $form;
 }
 
+/**
+ * funkcia sklada string obsahujuci formular, ktory taha info z argumentov funkcie
+ *
+ * @param  [string] $id       [description]
+ * @param  [string] $name     [description]
+ * @param  [string] $genre    [description]
+ * @param  [string] $director [description]
+ * @param  [string] $country  [description]
+ * @param  [string] $review   [description]
+ * @return [string]           [description]
+ */
 function updateForm($id, $name, $genre, $director, $country, $review)
 {
   $form = "<div class='container text-center'>";
@@ -33,6 +49,11 @@ function updateForm($id, $name, $genre, $director, $country, $review)
   return $form;
 }
 
+/**
+ * vytiahne udaje z db a v cykle ich spoji do stringu, ten vrati
+ * @param  Object $con db
+ * @return String
+ */
 function printDB($con)
 {
   $res = mysql_query("SELECT * FROM Movies", $con);
@@ -68,7 +89,11 @@ function printDB($con)
   return $layout;
 }
 
-
+/**
+ * pred prihlasenim sa zobrazi formular, ktory vytvara tato f
+ * @param  Boolean- som binarna premenna, v zavislosti od jej hodnoty sa bud vypise prihlas sa alebo nie
+ * @return [string]
+ */
 function printAdmin($fatal)
 {
   $addform = "<div class='container text-center'>";
@@ -90,6 +115,10 @@ function printAdmin($fatal)
 
 }
 
+/**
+ * f zbiera string do premennej, ktora obsahuje hlavicku tabulky na db
+ * @return [string]
+ */
 function makingheader()
 {
   $header="<div class='row text-center bg'>";

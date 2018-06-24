@@ -15,12 +15,12 @@
       <?php
       require 'layout.php';
       require 'db.php';
-
+      // prihlasovanie
       if (isset($_POST["Name"]) && isset($_POST["pass"]))
       {
           $pass = "admin";
           $name = "admin";
-
+          //kontrola spravnosti prihlasovacich udajov ak spravne vypise db
           if ($pass == $_POST["pass"] && $name == $_POST["Name"])
           {
 
@@ -36,11 +36,13 @@
             echo printDB($con);
             mysql_close($con);
           }
+          //ak nespravne udaje vypise formular na prihlasenie
           else
           {
             echo printAdmin(true);
           }
       }
+      //admin moze pridat do db, db sa vypise aj s novym riadkom
       else if(isset($_POST['NAME']) && isset($_POST['Genre']) && isset($_POST['Director']) && isset($_POST['Country'])&& isset($_POST['Review']))
       {
         $con = connectDB("galavecerxfc8938", "F9feEBO");
@@ -59,6 +61,7 @@
         mysql_close($con);
 
       }
+      //admin moze mazat z db
       else if(isset($_POST['id']))
       {
         $con = connectDB("galavecerxfc8938", "F9feEBO");
@@ -75,6 +78,7 @@
         mysql_close($con);
 
       }
+      //admin moze zobrazit udaj z db a prepisat ho
       else if(isset($_POST['ide']))
       {
         $con = connectDB("galavecerxfc8938", "F9feEBO");
@@ -86,6 +90,7 @@
         echo updateForm($res["ID"], $res["NAME"], $res["Genre"], $res["Director"], $res["Country"], $res["Review"]);
         mysql_close($con);
       }
+      //admin odosle prepisany formular do db a db ho vypise
       else if(isset($_POST['idee']) && isset($_POST['name']) && isset($_POST['genre']) && isset($_POST['director']) && isset($_POST['country']) && isset($_POST['review']))
       {
         $con = connectDB("galavecerxfc8938", "F9feEBO");
@@ -103,6 +108,7 @@
         echo printDB($con);
         mysql_close($con);
       }
+      //vypisanie formulara na prihlasenie
       else
       {
         echo printAdmin(false);
